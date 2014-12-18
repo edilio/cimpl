@@ -1,0 +1,343 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zequenze</title>
+
+	<!--Stylesheets-->
+    <link rel="stylesheet" href="{% static 'css/plugins.min.auto.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/global.min.auto.css' %}" />
+
+    <!--[if IE]>
+  	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="../favicon.ico">
+
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script> 
+
+  </head>
+
+  <body>
+  
+  <div class="container">
+
+  	<sidebar id="nav">
+  	
+  		<h1 id="logo"><a href="{% url 'home' %}"><img src="{% static 'img/logo-zequenze.png' %}" alt="logo-zequenze" width="70" height="49"></a></h1>
+  		
+  		<nav id="main">
+	  		<ul id="menu">
+	  			<li id="devices" class="active"><a href="{% url 'home' %}">Devices</a></li>
+	  		</ul>
+  		</nav>
+  		
+  		<aside>  		
+  			<div class="user-info">
+  				<img src="{% static 'img/profile-icon.png' %}" alt="profile-icon" width="59" height="59">
+  				<p>Jon Jones</p>  				
+  			</div>
+  			
+  			<a href="{% url 'account' %}" class="settings-link">Settings</a>
+  		</aside>
+  		
+  	</sidebar>
+  <!-- MAIN -->
+	<div class="wrapper scroll">
+	
+		<div class="user-bar">
+			<img class="avatar" src="{% static 'img/profile-icon.png' %}" alt="profile-icon" width="59" height="59">
+			<h1>Jon Jones</h1>			
+		</div>
+		
+		<section class="taxonomy" id="devices">
+		
+			<sidebar class="devices">
+				<a class="btn" href="#" id="show">Add Device</a>
+				<ul>
+					<li>
+						<a href="{% url 'devices' %}">
+							<img src="{% static 'img/device-off-icon.png' %}" alt="device-off-icon" width="40" height="47" />
+							<h6>Device A</h6>
+						</a>
+					</li>
+					<li>
+						<a href="{% url 'devices' %}">
+							<img src="{% static 'img/device-off-icon.png' %}" alt="device-off-icon" width="40" height="47" />
+							<h6>Device B</h6>
+						</a>
+					</li>
+					<li class="active">
+						<a href="{% url 'devices' %}">
+							<img src="{% static 'img/device-error-icon.png' %}" alt="device-off-icon" width="60" height="67" />
+							<h6>Erasmo (home)</h6>
+						</a>
+					</li>
+					<li>
+						<a href="{% url 'devices' %}">
+							<img src="{% static 'img/device-off-icon.png' %}" alt="device-off-icon" width="40" height="47" />
+							<h6>Device C</h6>
+						</a>
+					</li>
+					<li>
+						<a href="{% url 'devices' %}">
+							<img src="{% static 'img/device-off-icon.png' %}" alt="device-off-icon" width="40" height="47" />
+							<h6>Device D</h6>
+						</a>
+					</li>
+					<li>
+						<a href="{% url 'devices' %}">
+							<img src="{% static 'img/device-off-icon.png' %}" alt="device-off-icon" width="40" height="47" />
+							<h6>Device E</h6>
+						</a>
+					</li>
+					<li>
+						<a href="{% url 'devices' %}">
+							<img src="{% static 'img/device-off-icon.png' %}" alt="device-off-icon" width="40" height="47" />
+							<h6>Device F</h6>
+						</a>
+					</li>
+					<li>
+						<a href="{% url 'devices' %}">
+							<img src="{% static 'img/device-off-icon.png' %}" alt="device-off-icon" width="40" height="47" />
+							<h6>Device G</h6>
+						</a>
+					</li>
+				</ul>						
+			</sidebar>
+			
+			<div class="device-name">
+				<h3>Erasmo(home)</h3>
+			</div>
+			
+			<!-- Miller container -->
+			<div class="miller-container" data-source="json">				
+			</div>
+			<!-- / Miller container -->
+						
+		</section>
+
+	</div><! /.wrapper -->
+
+	</div><!-- /.container -->
+	
+		<!-- Modal -->
+		<div class="modal-content add-device hidden">
+			<h1>Add Device</h1>
+			<form id="add-device">
+				<input type="text" placeholder="Unique ID">
+			</form>
+			<a class="btn" href="#">Add Device</a>
+		</div>
+	
+		<script src="{% static 'js/zequenze.min.js' %}"></script>
+		<script src="{% static 'js/scripts.min.js' %}"></script>
+
+		<script>
+			// Grid/List Devices switcher
+			$('.switch a').bind('click', function(){
+			    $('.switch a').toggleClass('active');
+			    $('ul.devices').toggleClass('list').toggleClass('grid');
+			    //Now let´s shuffle some items from the list view to the grid view order
+			     $('ul.list li').each(function () {
+					var $this = $(this);
+					$('.activity', $this).prependTo($this);
+					$('.services', $this).appendTo($this);
+					$('.changes', $this).appendTo($this);
+					$('.actions', $this).appendTo($this);
+				});  
+			    $('ul.grid li').each(function () {
+						var $this = $(this);
+						$('.actions', $this).prependTo($this);
+						$('.name', $this).prependTo($this);
+						$('.services', $this).appendTo($this);
+				});	  
+			});
+			// Now let's add the small question icons that we will use to trigger the tooltips
+			$( '.activity img' ).after( '<span><img src="img/question-icon.png" class="tooltip" title="This is an activity tooltip" /></span>' );
+			$( '.changes img' ).after( '<span><img src="img/question-icon.png" class="tooltip" title="This is a pending changes tooltip" /></span>' );
+		</script>
+		<script>
+			// Avgrund modal initiliatize
+			$(function() {
+				$('#show').avgrund({
+					height: 200,
+					holderClass: 'modal',
+					showClose: false,
+					showCloseText: 'X',
+					onBlurContainer: '.container',
+					template: $('.modal-content'),
+					onLoad: function (element) {
+						$('.modal-content').toggleClass('visible').toggleClass('hidden');
+					}
+				});
+			});
+		</script>
+		<script>
+			// Pagination initiliatize
+			$(document).ready(function() {
+	
+				$('.pagination').jqPagination({
+					current_page: 1,
+					max_page	: 100,
+					page_string	: '{current_page}/{max_page}',
+					paged		: function(page) {
+					}
+				});
+			
+			});
+		</script>
+		 <script>
+		 // Tooltip initiliatize
+	        $(document).ready(function() {
+	        	// Global tooltip (used for the ? marks around the device icons in the main view
+	        	$('.tooltip').tooltipster({
+		            animation: 'grow',
+		            theme: 'tooltipster-global',
+		            position: 'bottom'
+	            });
+	            // Pagination tooltip
+	          $('.pagination').tooltipster({
+		           theme: 'tooltipster-pagination',
+		           animation: 'grow'            
+	          });
+	        // Multiple device info tooltip
+			$('.devices.list .actions').on('mouseenter touchstart', 'a', function(){
+				if($(this).hasClass('view')){
+					 var contenido = $('.info');
+			         var content = contenido
+			    }
+			    $(this).tooltipster({
+			        content: content,
+			        onlyOne: true,
+			        speed: 0,	
+			        position: 'left',
+			        theme: 'tooltipster-device',
+			        functionAfter: function(origin){
+			            origin.tooltipster('destroy');
+			        }
+			    }).tooltipster('show')
+			});
+			// Multiple device info tooltip
+			$('.devices.grid .actions').on('mouseenter touchstart', 'a', function(){
+				if($(this).hasClass('view')){
+					 var contenido = $('.info');
+			         var content = contenido
+			    }
+			    $(this).tooltipster({
+			        content: content,
+			        onlyOne: true,
+			        speed: 0,	
+			        position: 'bottom',
+			        theme: 'tooltipster-device',
+			        functionAfter: function(origin){
+			            origin.tooltipster('destroy');
+			        }
+			    }).tooltipster('show')
+			}); 
+	          // Devices filter big tooltip
+	          $('#filter-trigger').tooltipster({
+		            theme: 'tooltipster-filter',
+		            position: 'bottom',
+		            interactive: true,
+		            minWidth: '570',
+		            trigger: 'click',
+		            content: $('#filter-form'),
+		            contentCloning: false,
+				    functionBefore: function(origin, continueTooltip) {
+			        continueTooltip();				        
+			        $('.tooltipster-content #filter-form').removeClass('hidden').addClass('visible');
+			        $('a#filter-trigger').addClass('pressed');
+						},
+						functionAfter: function(origin) {				        
+			        $('.tooltipster-content #filter-form').removeClass('visible').addClass('hidden');
+			        $('a#filter-trigger').removeClass('pressed');
+						},
+				});         
+	        });
+	    </script>
+    <script>
+    // Minimalect custom selects initiliatize
+	    $(document).ready(function() {
+	   			$("select").minimalect({
+	   				placeholder: null,
+	   				debug: true
+	   			});
+				// Reset buttons
+				$('form.custom .minict_reset').bind('click', function(){
+					$('select').val('').change();
+					$('input').val('');
+				});
+		});
+	</script>
+	<script type="text/x-handlebars-template" id="taxonomy_terms">
+		
+		<div class="miller--terms--container">
+			
+			{[{#if parent}]}
+				<div class="miller--terms--selection">					
+					{[{#each parent}]}<a href="#" class="crumb" data-depth="{[{depth}]}"> &laquo; Back</a>{[{/each}]}
+				</div>
+			{[{/if}]}
+
+  		<ul class="terms">
+  			{[{#each taxonomies}]}
+  				<li class="term no-bubble {[{#if childrenCount}]}has-children{[{/if}]}" data-id="{[{id}]}" id="{[{id}]}">
+  					{[{#unless content}]}<a href="{[{url}]}">
+	  					  {[{#if label}]}<span class="title">{[{label}]}</span>{[{/if}]}  					  
+	  					  <em class="icon icon-arrow"></em> <em class="icon icon-search" title="Search for {[{label}]}"></em>   					  			
+	  					  {[{#if description}]}<span class="description">{[{description}]}</span>{[{/if}]}
+  					</a>{[{/unless}]}					
+  				</li>
+  			{[{/each}]}
+  		</ul>
+  		
+		</div>	
+		
+	</script>
+	<script>
+		$(function(){
+			
+			$('.miller-container').taxonomyBrowser({
+			  columns	: 4,
+			  //start: 'device-operations'
+			});
+			
+		});
+	</script>
+	<script>
+	$('#tab-content section').hide();
+		$('#tab-content section:first').show();
+		
+		$('#nav li').click(function() {
+		    $('#nav li a').removeClass("active");
+		    $(this).find('a').addClass("active");
+		    $('#tab-content > section').hide();
+		
+		    var indexer = $(this).index(); //gets the current index of (this) which is #nav li
+		    $('#tab-content section:eq(' + indexer + ')').fadeIn(); //uses whatever index the link has to open the corresponding box 
+		});
+	</script>
+	<script>
+	//highlight event bubbling (see pocket for url)
+	var divs = document.getElementsByTagName('');
+ 
+		for(var i=0; i<divs.length; i++) {
+		  divs[i].onclick = function(e) {
+		    e = e || event;
+		    var target = e.target || e.srcElement;
+		 
+		    this.style.backgroundColor='yellow';
+		     
+		    alert("target = "+target.className+", this="+this.className);
+		 
+		    this.style.backgroundColor = ''
+		  }
+		}
+	</script>
+
+  </body>
+</html>

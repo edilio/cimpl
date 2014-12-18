@@ -9,3 +9,11 @@ def home(request):
         # 'organization': json.dumps(request.session.get('real_user:organization', {})),
         }
     )
+
+
+def devices(request):
+    return render(request, 'device.html', {})
+
+
+def account(request):
+    return render(request, 'account.html', {})

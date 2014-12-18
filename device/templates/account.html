@@ -1,0 +1,374 @@
+{% load staticfiles %}
+<!DOCTYPE HTML>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Zequenze</title>
+
+	<!--Stylesheets-->
+    <link rel="stylesheet" href="{%  static 'css/plugins.min.auto.css' %}" />
+    <link rel="stylesheet" href="{%  static 'css/global.min.auto.css' %}" />
+
+    <!--[if IE]>
+  	<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <link rel="shortcut icon" href="../favicon.ico">
+    
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700' rel='stylesheet' type='text/css'>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script> 
+
+  </head>
+
+  <body>
+  
+  <div class="container">
+
+    	<sidebar id="nav">
+  	
+  		<h1 id="logo"><a href="main.php"><img src="{%  static 'img/logo-zequenze.png' %}" alt="logo-zequenze" width="70" height="49"></a></h1>
+  		
+  		<nav id="main">
+	  		<ul id="menu">
+	  			<li id="devices" class="active"><a href="{% url 'home' %}">Devices</a></li>
+	  		</ul>
+  		</nav>
+  		
+  		<aside>  		
+  			<div class="user-info">
+  				<img src="{%  static 'img/profile-icon.png' %}" alt="profile-icon" width="59" height="59">
+  				<p>Jon Jones</p>  				
+  			</div>
+  			
+  			<a href="/" class="settings-link">Settings</a>  			 					
+  		</aside>
+  		
+  	</sidebar>
+  <!-- MAIN -->
+	<div class="wrapper">
+	
+		<div class="user-bar">
+			<img class="avatar" src="{%  static 'img/profile-icon.png' %}" alt="profile-icon" width="59" height="59">
+			<h1>Jon Jones</h1>			
+		</div>
+		
+		<section class="main" id="account">
+			
+			<div id="tabmenu">
+    
+			    <ul id="nav">
+			        <li><a href="#" class="active"><h2>Profile</h2></a></li>
+			        <li><a href="#"><h2>Account</h2></a></li>
+			    </ul>
+			    
+			    <div id="tab-content" class="cf">
+			        
+			        <section id="tab1">
+			            <form class="custom" id="personal-info">
+			            	<div class="upload-image">
+			            		<input type="image" src="{%  static 'img/btn-image.-bg.png' %}" width="147" height="39" />
+			            		<p>upload a .png, .jpg or<br> jpeg image max size 500 KB.</p>
+			            	</div>	            	
+			            	<input type="text" placeholder="Full Name">
+			            	<input type="email" placeholder="E-mail">
+			            	<input type="text" placeholder="Adress">
+			            	<select>
+			            		<option disabled>State</option>
+			            		<option value="AL">Alabama</option> 
+									<option value="AK">Alaska</option> 
+									<option value="AZ">Arizona</option> 
+									<option value="AR">Arkansas</option> 
+									<option value="CA">California</option> 
+									<option value="CO">Colorado</option> 
+									<option value="CT">Connecticut</option> 
+									<option value="DE">Delaware</option> 
+									<option value="DC">District Of Columbia</option> 
+									<option value="FL">Florida</option> 
+									<option value="GA">Georgia</option> 
+									<option value="HI">Hawaii</option> 
+									<option value="ID">Idaho</option> 
+									<option value="IL">Illinois</option> 
+									<option value="IN">Indiana</option> 
+									<option value="IA">Iowa</option> 
+									<option value="KS">Kansas</option> 
+									<option value="KY">Kentucky</option> 
+									<option value="LA">Louisiana</option> 
+									<option value="ME">Maine</option> 
+									<option value="MD">Maryland</option> 
+									<option value="MA">Massachusetts</option> 
+									<option value="MI">Michigan</option> 
+									<option value="MN">Minnesota</option> 
+									<option value="MS">Mississippi</option> 
+									<option value="MO">Missouri</option> 
+									<option value="MT">Montana</option> 
+									<option value="NE">Nebraska</option> 
+									<option value="NV">Nevada</option> 
+									<option value="NH">New Hampshire</option> 
+									<option value="NJ">New Jersey</option> 
+									<option value="NM">New Mexico</option> 
+									<option value="NY">New York</option> 
+									<option value="NC">North Carolina</option> 
+									<option value="ND">North Dakota</option> 
+									<option value="OH">Ohio</option> 
+									<option value="OK">Oklahoma</option> 
+									<option value="OR">Oregon</option> 
+									<option value="PA">Pennsylvania</option> 
+									<option value="RI">Rhode Island</option> 
+									<option value="SC">South Carolina</option> 
+									<option value="SD">South Dakota</option> 
+									<option value="TN">Tennessee</option> 
+									<option value="TX">Texas</option> 
+									<option value="UT">Utah</option> 
+									<option value="VT">Vermont</option> 
+									<option value="VA">Virginia</option> 
+									<option value="WA">Washington</option> 
+									<option value="WV">West Virginia</option> 
+									<option value="WI">Wisconsin</option> 
+									<option value="WY">Wyoming</option>
+			            	</select>
+			            	<input type="number" placeholder="Zipcode" id="zipcode">
+			            	<input type="tel" placeholder="Phone Number">
+			            	<div class="actions">
+			            		<a href="#" class="submit btn full">Save</a>
+			            	</div>				            
+			            </form>
+			        </section>
+			        
+			        <section id="tab2">
+			            <form class="custom" id="change-password">
+			            	<input type="password" placeholder="Old Password">
+			            	<input type="password" placeholder="New Password">
+			            	<div class="actions">
+			            		<a href="#" class="submit btn full">Save</a>
+			            	</div>				            
+			            </form>
+			        </section>
+			        
+			    </div>
+			    
+			</div>
+				
+		</section>
+
+	</div><! /.wrapper -->
+
+	</div><!-- /.container -->
+	
+		<!-- Modal -->
+		<div class="modal-content add-device hidden">
+			<h1>Add Device</h1>
+			<form id="add-device">
+				<input type="text" placeholder="Unique ID">
+			</form>
+			<a class="btn" href="#">Add Device</a>
+		</div>
+	
+		<script src="{%  static 'js/zequenze.min.js' %}"></script>
+		<script src="{%  static 'js/scripts.min.js' %}"></script>
+
+		<script>
+			// Grid/List Devices switcher
+			$('.switch a').bind('click', function(){
+			    $('.switch a').toggleClass('active');
+			    $('ul.devices').toggleClass('list').toggleClass('grid');
+			    //Now let´s shuffle some items from the list view to the grid view order
+			     $('ul.list li').each(function () {
+					var $this = $(this);
+					$('.activity', $this).prependTo($this);
+					$('.services', $this).appendTo($this);
+					$('.changes', $this).appendTo($this);
+					$('.actions', $this).appendTo($this);
+				});  
+			    $('ul.grid li').each(function () {
+						var $this = $(this);
+						$('.actions', $this).prependTo($this);
+						$('.name', $this).prependTo($this);
+						$('.services', $this).appendTo($this);
+				});	  
+			});
+			// Now let's add the small question icons that we will use to trigger the tooltips
+			$( '.activity img' ).after( '<span><img src="img/question-icon.png" class="tooltip" title="This is an activity tooltip" /></span>' );
+			$( '.changes img' ).after( '<span><img src="img/question-icon.png" class="tooltip" title="This is a pending changes tooltip" /></span>' );
+		</script>
+		<script>
+			// Avgrund modal initiliatize
+			$(function() {
+				$('#show').avgrund({
+					height: 200,
+					holderClass: 'modal',
+					showClose: false,
+					showCloseText: 'X',
+					onBlurContainer: '.container',
+					template: $('.modal-content'),
+					onLoad: function (element) {
+						$('.modal-content').toggleClass('visible').toggleClass('hidden');
+					}
+				});
+			});
+		</script>
+		<script>
+			// Pagination initiliatize
+			$(document).ready(function() {
+	
+				$('.pagination').jqPagination({
+					current_page: 1,
+					max_page	: 100,
+					page_string	: '{current_page}/{max_page}',
+					paged		: function(page) {
+					}
+				});
+			
+			});
+		</script>
+		 <script>
+		 // Tooltip initiliatize
+	        $(document).ready(function() {
+	        	// Global tooltip (used for the ? marks around the device icons in the main view
+	        	$('.tooltip').tooltipster({
+		            animation: 'grow',
+		            theme: 'tooltipster-global',
+		            position: 'bottom'
+	            });
+	            // Pagination tooltip
+	          $('.pagination').tooltipster({
+		           theme: 'tooltipster-pagination',
+		           animation: 'grow'            
+	          });
+	        // Multiple device info tooltip
+			$('.devices.list .actions').on('mouseenter touchstart', 'a', function(){
+				if($(this).hasClass('view')){
+					 var contenido = $('.info');
+			         var content = contenido
+			    }
+			    $(this).tooltipster({
+			        content: content,
+			        onlyOne: true,
+			        speed: 0,	
+			        position: 'left',
+			        theme: 'tooltipster-device',
+			        functionAfter: function(origin){
+			            origin.tooltipster('destroy');
+			        }
+			    }).tooltipster('show')
+			});
+			// Multiple device info tooltip
+			$('.devices.grid .actions').on('mouseenter touchstart', 'a', function(){
+				if($(this).hasClass('view')){
+					 var contenido = $('.info');
+			         var content = contenido
+			    }
+			    $(this).tooltipster({
+			        content: content,
+			        onlyOne: true,
+			        speed: 0,	
+			        position: 'bottom',
+			        theme: 'tooltipster-device',
+			        functionAfter: function(origin){
+			            origin.tooltipster('destroy');
+			        }
+			    }).tooltipster('show')
+			}); 
+	          // Devices filter big tooltip
+	          $('#filter-trigger').tooltipster({
+		            theme: 'tooltipster-filter',
+		            position: 'bottom',
+		            interactive: true,
+		            minWidth: '570',
+		            trigger: 'click',
+		            content: $('#filter-form'),
+		            contentCloning: false,
+				    functionBefore: function(origin, continueTooltip) {
+			        continueTooltip();				        
+			        $('.tooltipster-content #filter-form').removeClass('hidden').addClass('visible');
+			        $('a#filter-trigger').addClass('pressed');
+						},
+						functionAfter: function(origin) {				        
+			        $('.tooltipster-content #filter-form').removeClass('visible').addClass('hidden');
+			        $('a#filter-trigger').removeClass('pressed');
+						},
+				});         
+	        });
+	    </script>
+    <script>
+    // Minimalect custom selects initiliatize
+	    $(document).ready(function() {
+	   			$("select").minimalect({
+	   				placeholder: null,
+	   				debug: true
+	   			});
+				// Reset buttons
+				$('form.custom .minict_reset').bind('click', function(){
+					$('select').val('').change();
+					$('input').val('');
+				});
+		});
+	</script>
+	<script type="text/x-handlebars-template" id="taxonomy_terms">
+		
+		<div class="miller--terms--container">
+			
+			{[{#if parent}]}
+				<div class="miller--terms--selection">					
+					{[{#each parent}]}<a href="#" class="crumb" data-depth="{[{depth}]}"> &laquo; Back</a>{[{/each}]}
+				</div>
+			{[{/if}]}
+
+  		<ul class="terms">
+  			{[{#each taxonomies}]}
+  				<li class="term no-bubble {[{#if childrenCount}]}has-children{[{/if}]}" data-id="{[{id}]}" id="{[{id}]}">
+  					{[{#unless content}]}<a href="{[{url}]}">
+	  					  {[{#if label}]}<span class="title">{[{label}]}</span>{[{/if}]}  					  
+	  					  <em class="icon icon-arrow"></em> <em class="icon icon-search" title="Search for {[{label}]}"></em>   					  			
+	  					  {[{#if description}]}<span class="description">{[{description}]}</span>{[{/if}]}
+  					</a>{[{/unless}]}					
+  				</li>
+  			{[{/each}]}
+  		</ul>
+  		
+		</div>	
+		
+	</script>
+	<script>
+		$(function(){
+			
+			$('.miller-container').taxonomyBrowser({
+			  columns	: 4,
+			  //start: 'device-operations'
+			});
+			
+		});
+	</script>
+	<script>
+	$('#tab-content section').hide();
+		$('#tab-content section:first').show();
+		
+		$('#nav li').click(function() {
+		    $('#nav li a').removeClass("active");
+		    $(this).find('a').addClass("active");
+		    $('#tab-content > section').hide();
+		
+		    var indexer = $(this).index(); //gets the current index of (this) which is #nav li
+		    $('#tab-content section:eq(' + indexer + ')').fadeIn(); //uses whatever index the link has to open the corresponding box 
+		});
+	</script>
+	<script>
+	//highlight event bubbling (see pocket for url)
+	var divs = document.getElementsByTagName('');
+ 
+		for(var i=0; i<divs.length; i++) {
+		  divs[i].onclick = function(e) {
+		    e = e || event;
+		    var target = e.target || e.srcElement;
+		 
+		    this.style.backgroundColor='yellow';
+		     
+		    alert("target = "+target.className+", this="+this.className);
+		 
+		    this.style.backgroundColor = ''
+		  }
+		}
+	</script>
+
+  </body>
+</html>

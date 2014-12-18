@@ -37,6 +37,7 @@ class Parameter(models.Model):
 
 class Value(models.Model):
     device = models.ForeignKey(Device)
+    parameter = models.ForeignKey(Parameter)
     value = models.CharField(max_length=50)
     applied = models.BooleanField(default=False)
 

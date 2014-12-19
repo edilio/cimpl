@@ -4,6 +4,7 @@ from rest_framework import routers
 
 from ..views import api as views
 
+
 router = routers.SimpleRouter()
 router.register(r'locations', views.LocationViewSet)
 router.register(r'device-types', views.DeviceTypeViewSet)

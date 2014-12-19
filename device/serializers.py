@@ -14,6 +14,8 @@ class DeviceTypeSerializer(serializers.ModelSerializer):
 
 
 class DeviceSerializer(serializers.ModelSerializer):
+    location_str = serializers.CharField(source='location.name', read_only=True)
+
     class Meta:
         model = Device
 

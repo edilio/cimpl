@@ -17,3 +17,7 @@ def devices(request):
 
 def account(request):
     return render(request, 'account.html', {})
+
+
+def angular(request):
+    return render(request, 'test_angular.html', {})
